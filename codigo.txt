@@ -1,22 +1,16 @@
-// LED 1
 int a = 3;
 int b = 5;
 int c = 6;
 
-// LED 2
 int d = 9;
 int e = 10;
 int f = 11;
 
-// LED 3
 int g = A0;
 int h = A1;
 int i = A2;
 
-// BUZZER
 int j = 8;
-
-
 
 void setup()
 {
@@ -35,7 +29,6 @@ void setup()
   pinMode(j, OUTPUT);
 }
 
-
 void apagarTodo()
 {
   analogWrite(a, 0);
@@ -51,48 +44,21 @@ void apagarTodo()
   analogWrite(i, 0);
 }
 
-
 void beep()
 {
-  analogWrite(j, 120);
-  delay(80);
-
-  analogWrite(j, 0);
+  tone(j, 2000); 
+  delay(80);    
+  noTone(j);
 }
-
-
-void parpadeo()
-{
-  for(int k = 0; k < 4; k++)
-  {
-
-    analogWrite(a, 255);
-    analogWrite(b, 80);
-
-    analogWrite(d, 255);
-    analogWrite(e, 80);
-
-    analogWrite(g, 255);
-    analogWrite(h, 80);
-
-    delay(100);
-
-    apagarTodo();
-
-    delay(100);
-  }
-}
-
-
 
 void loop()
 {
 
-
-
   apagarTodo();
 
   analogWrite(a, 255);
+  analogWrite(b, 0);
+  analogWrite(c, 0);
 
   delay(1000);
 
@@ -100,10 +66,8 @@ void loop()
 
   apagarTodo();
 
-  parpadeo();
-
-
   digitalWrite(d, HIGH);
+  digitalWrite(e, LOW);
   digitalWrite(f, HIGH);
 
   delay(1000);
@@ -112,18 +76,11 @@ void loop()
 
   apagarTodo();
 
-  parpadeo();
-
-
-  analogWrite(h, 80);
-  analogWrite(i, 80);
+  analogWrite(g, 0);
+  analogWrite(h, 60);
+  analogWrite(i, 60);   
 
   delay(1000);
 
   beep();
-
-  apagarTodo();
-
-  parpadeo();
-
 }
