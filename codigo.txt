@@ -1,14 +1,14 @@
-const int ledR = 9;
-const int ledG = 10;
-const int ledB = 11;
+int ledR = 9;
+int ledG = 10;
+int ledB = 11;
 
-const int potTiempo = A0;
-const int potR = A1;
-const int potG = A2;
-const int potB = A3;
+int potTiempo = A0;
+int potR = A1;
+int potG = A2;
+int potB = A3;
 
-const int boton = 2;
-const int buzzer = 6;
+boton = 2;
+buzzer = 6;
 
 bool sistemaActivo = true;
 bool estadoBotonAnterior = HIGH;
