@@ -1,12 +1,12 @@
 #define MSG_LUZ "El nivel de luz actual es: "
 #define MSG_TEMP " y la temperatura actual: "
 
-const int PIN_LDR = A0;
-const int PIN_TMP35 = A1;
+#define PIN_LDR A0
+#define PIN_TMP35 A1
 
-const int LED_ROJO = 9;
-const int LED_VERDE = 10;
-const int LED_AZUL = 11;
+#define LED_ROJO 9
+#define LED_VERDE 10
+#define LED_AZUL 11
 
 void setup() {
   Serial.begin(9600);
@@ -14,6 +14,9 @@ void setup() {
   pinMode(LED_ROJO, OUTPUT);
   pinMode(LED_VERDE, OUTPUT);
   pinMode(LED_AZUL, OUTPUT);
+
+  pinMode(PIN_LDR, INPUT);
+  pinMode(PIN_TMP35, INPUT);
 }
 
 void loop() {
@@ -23,8 +26,9 @@ void loop() {
 
   int porcentajeLuz = map(lecturaLDR, 0, 1023, 0, 100);
 
-  float voltaje = lecturaTMP * (5.0 / 1023.0);
-  float temperatura = voltaje * 100.0;
+  float voltaje = lecturaTMP * 5.0 / 1023.0;
+
+  float temperatura = voltaje * 100 - 50;
 
   Serial.print(MSG_LUZ);
   Serial.print(porcentajeLuz);
@@ -45,7 +49,7 @@ void loop() {
     else if (temperatura < 18) {
       digitalWrite(LED_AZUL, HIGH);
     }
-    else if (temperatura >= 18 && temperatura <= 90) {
+    else {
       digitalWrite(LED_VERDE, HIGH);
     }
   }
