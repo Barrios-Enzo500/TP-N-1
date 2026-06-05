@@ -1,16 +1,16 @@
-int a = 3;
-int b = 5;
-int c = 6;
+#define a 3
+#define b 5
+#define c 6
 
-int d = 9;
-int e = 10;
-int f = 11;
+#define d 9
+#define e 10
+#define f 11
 
-int g = A0;
-int h = A1;
-int i = A2;
+#define g A0
+#define h A1
+#define i A2
 
-int j = 8;
+#define j 8
 
 void setup()
 {
