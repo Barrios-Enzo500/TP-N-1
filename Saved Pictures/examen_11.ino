@@ -1,0 +1,14 @@
+#define PIN_LDR A0
+#define PIR_PIN 2
+#define LDR_PIN A1
+
+#define TRIG_PIN 9
+#define ECHO_PIN 10
+
+#define RED_PIN 3
+#define GREEN_PIN 5
+#define BLUE_PIN 6
+
+void setup () {
+ pinMode(PIN_LDR, INPUT);
+}
